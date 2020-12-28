@@ -1,3 +1,3 @@
-output "vpcid" {
-    value = aws_vpc.prod_vpc.id
+output "biglogic_vpc" {
+    value = aws_vpc.biglogic_vpc.id
 }

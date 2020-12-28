@@ -1,13 +1,12 @@
-resource "aws_vpc" "prod_vpc" {
-    cidr_block = var.vpcidr
-    instance_tenancy = var.instace_tenancy
-    tags = {
-    Name = "atulvpc"
+resource "aws_vpc" "biglogic_vpc" {
+  cidr_block           = var.cidr
+  instance_tenancy     = "default"
+  enable_dns_support   = var.enable_dns_support
+  enable_dns_hostnames = var.enable_dns_hostnames
+
+  tags = {
+    Name    = "vpc-${var.aws-account}-${var.project}-${var.env}"
+    env     = var.env
+    project = var.project
   }
-}
-
-
-
-output "vpcid" {
-    value = aws_vpc.prod_vpc.id
 }
