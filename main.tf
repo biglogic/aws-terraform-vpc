@@ -4,9 +4,8 @@ resource "aws_vpc" "biglogic_vpc" {
   enable_dns_support   = var.enable_dns_support
   enable_dns_hostnames = var.enable_dns_hostnames
 
-  tags = {
-    Name    = "vpc-${var.aws-account}-${var.project}-${var.env}"
-    env     = var.env
-    project = var.project
-  }
+  tags = merge(var.tags, map(
+    "Name", "vpc-${var.aws-account}-${var.project}-${var.env}",
+    "Description", "${var.project} ${var.env} VPC"
+  ))
 }

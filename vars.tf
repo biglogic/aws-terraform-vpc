@@ -28,3 +28,14 @@ variable "enable_dns_hostnames" {
   type    = bool
   default = false
 }
+
+
+variable "tags" {
+  description = "The tags to associate with resources"
+  type        = map(string)
+
+  default = {
+    tag1 = "default"
+    tag2 = "default"
+  }
+}
